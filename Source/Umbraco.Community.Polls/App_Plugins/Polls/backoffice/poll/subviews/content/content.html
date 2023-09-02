@@ -1,0 +1,31 @@
+﻿<div ng-controller="Polls.ContentController">
+    <umb-control-group label="@polls_addAnswer" description="@polls_addAnswerDescription">
+        <div class="control-group">
+            <input name="newItem" type="text" ng-model="answerInput.value" val-highlight="{{answerInput.hasError}}" />
+            <button class="btn" ng-click="addAnswer($event)" ng-disabled="model.question.answers.length >= amountOfAnswers || !answerInput.value">
+                <localize key="general_add">Add</localize>
+            </button>
+        </div>
+        <div ui-sortable="sortableOptions" ng-model="model.question.answers">
+            <div class="control-group" ng-repeat="answer in model.question.answers">
+                <i class="icon icon-navigation handle"></i>
+                <input type="text" ng-model="answer.value" required on-blur="updateAnswer(answer)" val-highlight="{{answer.hasError}}" />
+                <button class="btn btn-danger" ng-click="removeAnswer(answer, $event)">
+                    <localize key="general_delete">Remove</localize>
+                </button>
+            </div>
+        </div>
+    </umb-control-group>
+
+    <umb-control-group class="umb-datepicker" label="@polls_startDate" description="@polls_startDateDescription">
+        <umb-date-time-picker ng-model="model.question.startDate"
+                              options="dateTimeConfig"
+                              on-change="datePickerFromChange(selectedDates, dateStr, instance)">
+        </umb-date-time-picker>
+        </umb-control-group>
+
+    <umb-control-group label="@polls_endDate" description="@polls_endDateDescription" class="umb-el-rap">
+        <umb-date-time-picker ng-model="model.question.endDate" options="dateTimeConfig" on-change="datePickerToChange(selectedDates, dateStr, instance)"></umb-date-time-picker>
+    </umb-control-group>
+
+</div>

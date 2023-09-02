@@ -1,0 +1,14 @@
+﻿
+<div ng-controller="Polls.PickerController" class="umb-property-editor umb-contentpicker">
+    <a href="javascript:;" ng-if="!content.selection" class="umb-node-preview-add" ng-click="openPollPicker()" prevent-default>
+        Add
+    </a>
+    <umb-node-preview ng-if="content.selection.name" name="content.selection.name" icon="icon-poll" allow-remove="true" on-remove="remove()"></umb-node-preview>
+
+    <umb-load-indicator ng-if="isLoading" />
+
+    <div ng-if="content.error" class="alert alert-warning">
+        {{ content.error }}
+    </div>
+
+</div>

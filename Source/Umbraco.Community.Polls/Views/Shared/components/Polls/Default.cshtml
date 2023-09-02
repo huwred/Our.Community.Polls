@@ -1,0 +1,82 @@
+﻿@model dynamic
+@using Umbraco.Community.Polls
+@using Umbraco.Community.Polls.Controllers
+@using Umbraco.Community.Polls.Models
+@using Umbraco.Extensions
+@inject IPollService pollService
+@{
+    var question = Model;
+    bool allowVote = true;
+    bool expired = false;
+    if (question.EndDate != null && DateTime.UtcNow > question.EndDate)
+    {
+        question = pollService.GetQuestion(question.Id);
+        expired = true;
+        allowVote = false;
+    }
+    if (TempData["Question"] != null)
+    {
+        question = (Question)TempData["Question"];
+        allowVote = false;
+    }
+}
+@if (question.StartDate != null && DateTime.UtcNow < question.StartDate)
+{
+
+}
+else
+{
+    <div class="card" style="width: 24rem;">
+        <div class="card-header">
+            @question.Name
+        </div>
+        @using (Html.BeginUmbracoForm<PollSurfaceController>("Poll"))
+        {
+            @Html.Hidden("questionId", question.Id,null)
+            <ul class="list-group list-group-flush">
+
+                @foreach (var answer in question.Answers)
+                {
+                    <li class="list-group-item">
+                        <div class="radio">
+                            <label>
+                                @if (allowVote)
+                                {
+                                    @Html.RadioButton("answerId", answer.Id, false, null)
+                                }
+                                @answer.Value
+                            </label>
+                            @if (answer.Responses != null && !allowVote)
+                            {
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-label="Example with label" style="width: @answer.Percentage%;" aria-valuenow="@answer.Percentage" aria-valuemin="0" aria-valuemax="100">@answer.Percentage%</div>
+                                </div>
+                            }
+                        </div>
+                    </li>
+                }
+            </ul>
+            @if (allowVote)
+            {
+                <div class="card-footer" >
+                    <button type="submit" class="btn btn-primary">post</button>
+                </div>
+            }
+            else
+            {
+                <div class="card-footer">
+                    @if (expired)
+                    {
+                        <label>Voting has closed</label>
+                    }
+                    else
+                    {
+                        <label>Thank you for voting</label>
+                    }
+                    
+                </div>
+            }
+        }
+    </div>
+}
+
