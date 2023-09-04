@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33927.249
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Umbraco.Community.Polls", "Umbraco.Community.Polls\Umbraco.Community.Polls.csproj", "{D248FE9C-9FC8-4EDC-8761-A8AF76D099E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Our.Community.Polls", "Our.Community.Polls\Our.Community.Polls.csproj", "{D248FE9C-9FC8-4EDC-8761-A8AF76D099E5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PollTest", "PollTest\PollTest.csproj", "{53DA9762-DC9D-4628-9DB4-AB70E3AEF043}"
 EndProject
