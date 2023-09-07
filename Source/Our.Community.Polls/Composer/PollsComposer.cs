@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Our.Community.Polls.CacheRefresher;
+using Our.Community.Polls.Handlers;
 using Our.Community.Polls.Models.Repositories;
 using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.DependencyInjection;

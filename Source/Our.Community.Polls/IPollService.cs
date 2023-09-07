@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Linq;
+using System.Threading;
 using Our.Community.Polls.Models;
 using Our.Community.Polls.Models.Repositories;
+using Our.Community.Polls.PollConstants;
+using Umbraco.Cms.Core.Cache;
+using Umbraco.Extensions;
 
 namespace Our.Community.Polls
 {
@@ -14,28 +18,35 @@ namespace Our.Community.Polls
     public class PollService : IPollService
     {
         private readonly IQuestions _questions;
-        public PollService(IQuestions questions)
+        private readonly IAppPolicyCache _runtimeCache;
+        public PollService(IQuestions questions, AppCaches appCaches)
         {
+            _runtimeCache = appCaches.RuntimeCache;
             _questions = questions;
         }
         public Question GetQuestion(int questionId)
         {
-            var question = _questions.GetById(questionId);
-            question.Answers = _questions.GetAnswers(questionId).OrderBy(i => i.Index);
-
-            var responses = _questions.GetResponses(questionId).ToList();
-
-            question.ResponseCount = responses.Count;
-
-            foreach (var answer in question.Answers)
+            return _runtimeCache.GetCacheItem($"{RuntimeCacheConstants.RuntimeCacheKeyPrefix}{questionId}", () =>
             {
-                var answerResponses = responses.Where(item => item.AnswerId.Equals(answer.Id)).ToList();
+                var question = _questions.GetById(questionId);
+                question.Answers = _questions.GetAnswers(questionId).OrderBy(i => i.Index);
 
-                answer.Responses = answerResponses;
-                answer.Percentage = answerResponses.Any() ? Math.Round((double)(answerResponses.Count) / responses.Count * 100) : 0;
-            }
+                var responses = _questions.GetResponses(questionId).ToList();
 
-            return question;
+                question.ResponseCount = responses.Count;
+
+                foreach (var answer in question.Answers)
+                {
+                    var answerResponses = responses.Where(item => item.AnswerId.Equals(answer.Id)).ToList();
+
+                    answer.Responses = answerResponses;
+                    answer.Percentage = answerResponses.Any() ? Math.Round((double)(answerResponses.Count) / responses.Count * 100) : 0;
+                }
+
+                return question;
+            }, TimeSpan.FromMinutes(RuntimeCacheConstants.DefaultExpiration),true);
+
+
         }
 
         public Question Vote(int questionId, int answerId)

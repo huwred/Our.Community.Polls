@@ -5,7 +5,7 @@ using Umbraco.Cms.Core.Events;
 using Umbraco.Cms.Core.Notifications;
 using Umbraco.Extensions;
 
-namespace Our.Community.Polls
+namespace Our.Community.Polls.Handlers
 {
     internal class ServerVariablesParsingNotificationHandler : INotificationHandler<ServerVariablesParsingNotification>
     {
