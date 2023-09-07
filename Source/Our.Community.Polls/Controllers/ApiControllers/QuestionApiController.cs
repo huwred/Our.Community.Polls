@@ -4,12 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Our.Community.Polls.Models;
+using Our.Community.Polls.Models.Repositories;
 using Umbraco.Cms.Web.Common.Controllers;
-using Umbraco.Community.Polls.Models;
 
-using Umbraco.Community.Polls.Models.Repositories;
-
-namespace Umbraco.Community.Polls.Controllers.ApiControllers
+namespace Our.Community.Polls.Controllers.ApiControllers
 {
 
     public class QuestionApiController : UmbracoApiController 

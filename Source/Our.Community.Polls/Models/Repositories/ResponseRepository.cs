@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using NPoco;
+using Our.Community.Polls.PollConstants;
 using Umbraco.Cms.Infrastructure.Scoping;
-using Umbraco.Community.Polls.PollConstants;
 
-namespace Umbraco.Community.Polls.Models.Repositories
+namespace Our.Community.Polls.Models.Repositories
 {
     public interface IResponses
     {

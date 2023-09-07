@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNetCore.Routing;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Routing;
+using Our.Community.Polls.Controllers.ApiControllers;
 using Umbraco.Cms.Core.Events;
 using Umbraco.Cms.Core.Notifications;
-using Umbraco.Community.Polls.Controllers.ApiControllers;
 using Umbraco.Extensions;
 
-namespace Umbraco.Community.Polls
+namespace Our.Community.Polls
 {
     internal class ServerVariablesParsingNotificationHandler : INotificationHandler<ServerVariablesParsingNotification>
     {

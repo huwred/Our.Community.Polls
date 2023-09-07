@@ -2,11 +2,11 @@
   <PropertyGroup>
     <TargetFrameworks>net7.0;net6.0</TargetFrameworks>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-    <Version>1.0.0-rc1.10</Version>
+    <Version>1.0.0-rc1.12</Version>
     <ContentTargetFolders>.</ContentTargetFolders>
-    <Product>Umbraco.Community.Polls</Product>
-    <PackageId>Umbraco.Community.Polls</PackageId>
-    <Title>Umbraco.Community.Polls</Title>
+    <Product>Our.Community.Polls</Product>
+    <PackageId>Our.Community.Polls</PackageId>
+    <Title>Our.Community.Polls</Title>
     <Description>...</Description>
     <PackageTags>umbraco plugin package</PackageTags>
   </PropertyGroup>

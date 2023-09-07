@@ -1,9 +1,9 @@
-﻿using NPoco;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using NPoco;
+using Our.Community.Polls.PollConstants;
 using Umbraco.Cms.Infrastructure.Persistence.DatabaseAnnotations;
-using Umbraco.Community.Polls.PollConstants;
 
-namespace Umbraco.Community.Polls.Models
+namespace Our.Community.Polls.Models
 {
     [TableName(TableConstants.Answers.TableName)]
     [ExplicitColumns]

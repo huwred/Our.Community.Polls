@@ -1,14 +1,12 @@
-﻿using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
+﻿using System;
+using Our.Community.Polls.Models;
+using Our.Community.Polls.Models.Repositories;
+using Our.Community.Polls.PollConstants;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.PropertyEditors;
 using Umbraco.Cms.Core.PublishedCache;
-using Umbraco.Community.Polls.Models;
-using Umbraco.Community.Polls.Models.Repositories;
-using Umbraco.Community.Polls.PollConstants;
 
-namespace Umbraco.Community.Polls.Converters
+namespace Our.Community.Polls.Converters
 {
 
     public class PollsValueConverter : IPropertyValueConverter

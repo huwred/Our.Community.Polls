@@ -1,10 +1,10 @@
-﻿using NPoco;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using NPoco;
+using Our.Community.Polls.PollConstants;
 using Umbraco.Cms.Infrastructure.Persistence.DatabaseAnnotations;
-using Umbraco.Community.Polls.PollConstants;
 
-namespace Umbraco.Community.Polls.Models
+namespace Our.Community.Polls.Models
 {
     [TableName(TableConstants.Questions.TableName)]
     [ExplicitColumns]
@@ -22,11 +22,11 @@ namespace Umbraco.Community.Polls.Models
         public int ResponseCount { get; set; }
 
         [Column("StartDate")]
-        [NullSetting(NullSetting = NullSettings.Null)]
+        [NullSetting]
         public DateTime? StartDate { get; set; }
 
         [Column("EndDate")]
-        [NullSetting(NullSetting = NullSettings.Null)]
+        [NullSetting]
         public DateTime? EndDate { get; set; }
 
         [Column("CreatedDate")]

@@ -1,11 +1,11 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Our.Community.Polls.CacheRefresher;
+using Our.Community.Polls.Models.Repositories;
 using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Cms.Core.Notifications;
-using Umbraco.Community.Polls.CacheRefresher;
-using Umbraco.Community.Polls.Models.Repositories;
 
-namespace Umbraco.Community.Polls.Composer
+namespace Our.Community.Polls.Composer
 {
     public class PollsComposer : IComposer
     {

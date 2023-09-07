@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Our.Community.Polls.Models;
+using Our.Community.Polls.Models.Repositories;
 using Umbraco.Cms.Web.BackOffice.Controllers;
-using Umbraco.Community.Polls.Models;
-using Umbraco.Community.Polls.Models.Repositories;
 
-namespace Umbraco.Community.Polls.Controllers.ApiControllers
+namespace Our.Community.Polls.Controllers.ApiControllers
 {
     public class OverviewApiController : UmbracoAuthorizedJsonController
     {

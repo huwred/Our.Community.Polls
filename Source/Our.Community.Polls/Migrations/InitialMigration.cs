@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using Our.Community.Polls.Models;
+using Our.Community.Polls.PollConstants;
 using Umbraco.Cms.Core;
 using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.DependencyInjection;
@@ -6,10 +8,8 @@ using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Infrastructure.Migrations;
 using Umbraco.Cms.Infrastructure.Migrations.Upgrade;
 using Umbraco.Cms.Infrastructure.Scoping;
-using Umbraco.Community.Polls.Models;
-using Umbraco.Community.Polls.PollConstants;
 
-namespace Umbraco.Community.Polls.Migrations
+namespace Our.Community.Polls.Migrations
 {
     public class InitialMigration : MigrationBase
     {

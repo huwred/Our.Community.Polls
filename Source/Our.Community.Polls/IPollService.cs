@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Umbraco.Community.Polls.Models;
-using Umbraco.Community.Polls.Models.Repositories;
+using Our.Community.Polls.Models;
+using Our.Community.Polls.Models.Repositories;
 
-namespace Umbraco.Community.Polls
+namespace Our.Community.Polls
 {
     public interface IPollService
     {

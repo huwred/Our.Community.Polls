@@ -1,4 +1,4 @@
-﻿namespace Umbraco.Community.Polls.PollConstants
+﻿namespace Our.Community.Polls.PollConstants
 {
     internal class AppSettings
     {
