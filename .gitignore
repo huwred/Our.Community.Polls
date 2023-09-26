@@ -398,3 +398,5 @@ FodyWeavers.xsd
 *.sln.iml
 /wwwTest
 /Source/wwwTest/wwwTest.csproj
+/Source/wwwTest/wwwTest.csproj
+/Source/wwwTest
