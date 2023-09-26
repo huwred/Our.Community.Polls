@@ -39,7 +39,12 @@
                                 </li>
 
                                 <umb-empty-state ng-if="content.questions.length === 0" position="center">
-                                    <localize key="polls_noQuestions">No questions</localize>
+                                    <localize key="noQuestions">No Polls defined</localize>
+                                    <p>Please, create one</p>
+                                    <umb-button type="button"
+                                                label="Create question"
+                                                action="navigate('-1')">
+                                    </umb-button>
                                 </umb-empty-state>
                             </ul>
 
@@ -74,40 +79,4 @@
     </form>
 
 </div>
-<!--<div ng-controller="Polls.PickerOverlayController" class="umb-editor umb-itempicker">
-    <div class="umb-panel umb-editor-wrapper">-->
 
-        <!-- FILTER -->
-        <!--<div class="umb-control-group -no-border" ng-if="!isLoading && content.questions.length !== 0">
-            <div class="form-search">
-                <i class="icon-search"></i>
-                <input type="text"
-                       class="-full-width-input"
-                       ng-model="content.filterTerm"
-                       localize="placeholder"
-                       placeholder="@placeholders_filter"
-                       umb-auto-focus>
-            </div>
-        </div>
-
-        <ul class="umb-actions umb-actions-child" ng-if="!isLoading">
-            <li ng-repeat="question in content.questions | orderBy:'name' | filter:content.filterTerm" ng-click="pickPoll(question)">
-                <i class="icon-poll"></i><a href="" title="{{ question.name }}">
-
-                    <span class="menu-label">
-                        {{question.name}}
-                    </span>
-                </a>
-            </li>
-
-            <umb-empty-state ng-if="content.questions.length === 0" position="center">
-                <localize key="polls_noQuestions">No questions</localize>
-            </umb-empty-state>
-        </ul>
-    </div>
-    <umb-load-indicator ng-if="isLoading" />
-
-    <div ng-if="content.error" class="alert alert-warning">
-        {{ content.error }}
-    </div>
-</div>-->

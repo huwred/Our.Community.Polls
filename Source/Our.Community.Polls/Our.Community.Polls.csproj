@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFrameworks>net7.0;net6.0</TargetFrameworks>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-    <Version>1.0.0-rc1.12</Version>
+    <Version>1.0.0-rc1.13</Version>
     <ContentTargetFolders>.</ContentTargetFolders>
     <Product>Our.Community.Polls</Product>
     <PackageId>Our.Community.Polls</PackageId>

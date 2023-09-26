@@ -1,4 +1,4 @@
-﻿function PickerOverlayController($scope, pollsResource) {
+﻿function PickerOverlayController($scope, $location, pollsResource) {
 
     $scope.isLoading = true;
     $scope.content = { questions: [], error: null }
@@ -25,6 +25,14 @@
         if ($scope.model.close) {
             $scope.model.close();
         }
+    }
+    $scope.navigate = function (id) {
+        var location = "/settings/poll/edit/" + id;
+        if (id === "-1") {
+            location += ('/?create');
+        }
+        console.log(location);
+        $location.url(location);
     }
 }
 

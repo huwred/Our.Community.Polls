@@ -19,7 +19,8 @@
     ];
 
 
-    if (!$routeParams.create) {
+    if (!$routeParams.create && !($routeParams.id === "-1")) {
+
         $scope.page.isLoading = true;
 
         pollsResource.getQuestionById($routeParams.id).then(function (result) {
