@@ -1,5 +1,8 @@
 # Our.Community.Polls
 Simple Poll Property Editor for Umbraco
 
-## Render Poll
-`@await Component.InvokeAsync("Polls", Model.MyPoll)`
+## Documentation
+
+* [Developers Guide](developers-guide.md)
+* [Examples](examples.md)
+* [Gallery](gallery.md)
