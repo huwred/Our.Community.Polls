@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Our.Community.Polls.Models;
 
-namespace Our.Community.Polls
+namespace Our.Community.Polls.ViewComponents
 {
     public class PollsViewComponent : ViewComponent
     {

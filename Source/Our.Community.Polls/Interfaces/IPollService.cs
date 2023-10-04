@@ -6,7 +6,7 @@ using Our.Community.Polls.Repositories;
 using Umbraco.Cms.Core.Cache;
 using Umbraco.Extensions;
 
-namespace Our.Community.Polls
+namespace Our.Community.Polls.Interfaces
 {
     public interface IPollService
     {
