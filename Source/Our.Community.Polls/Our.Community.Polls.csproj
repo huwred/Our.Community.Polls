@@ -2,13 +2,13 @@
   <PropertyGroup>
     <TargetFrameworks>net7.0;net6.0</TargetFrameworks>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-    <Version>1.0.0-rc1.16</Version>
+    <Version>1.0.0</Version>
     <ContentTargetFolders>.</ContentTargetFolders>
     <Product>Our.Community.Polls</Product>
     <PackageId>Our.Community.Polls</PackageId>
     <Title>Our.Community.Polls</Title>
     <Description>Create dynamic, interactive polls for your Umbraco web site. </Description>
-    <PackageTags>umbraco plugin package</PackageTags>
+    <PackageTags>umbraco plugin package umbraco-marketplace</PackageTags>
   </PropertyGroup>
 
   <ItemGroup Condition="$(TargetFramework) == 'net7.0'">

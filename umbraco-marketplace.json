@@ -1,0 +1,15 @@
+{
+  "$schema": "https://marketplace.umbraco.com/umbraco-marketplace-schema.json",
+  "AuthorDetails": {
+    "Name": "Huw Reddick",
+    "Description": "Senior software developer at Cantata",
+    "Url": "https://our.umbraco.com/members/huwred/",
+    "ImageUrl": "https://our.umbraco.com/media/upload/af865e33-184c-4930-a90b-93b05c2a4d0c/me.jpg?width=250&height=250&mode=crop&upscale=true"
+
+  },
+  "Description": "Poll property for Umbraco 10+",
+  "LicenseTypes": [ "Free" ],
+  "IssueTrackerUrl": "https://github.com/huwred/Our.Community.Polls/issues",
+  "PackageType": "Package"
+
+}
