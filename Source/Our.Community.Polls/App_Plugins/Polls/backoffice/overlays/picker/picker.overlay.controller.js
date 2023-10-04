@@ -1,8 +1,8 @@
 ﻿function PickerOverlayController($scope, $location, pollsResource) {
 
     $scope.isLoading = true;
-    $scope.content = { questions: [], error: null }
-
+    $scope.content = { questions: [], error: null };
+    $scope.model.title = "Poll Selector";
     pollsResource.getQuestions().then(function (result) {
         
         $scope.content.questions = result.data;

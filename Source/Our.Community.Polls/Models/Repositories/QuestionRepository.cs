@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Transactions;
 using NPoco;
 using Our.Community.Polls.PollConstants;
 using Umbraco.Cms.Infrastructure.Scoping;
@@ -87,7 +88,7 @@ namespace Our.Community.Polls.Models.Repositories
         public bool Delete(int id)
         {
             using var scope = _scopeProvider.CreateScope(autoComplete: true);
-            var result = scope.Database.Delete<Question>(id);
+            var result = 0;
 
             using (var transaction = scope.Database.GetTransaction())
             {
@@ -109,7 +110,10 @@ namespace Our.Community.Polls.Models.Repositories
                         return false;// this.Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Can't delete question, Error removing the answers");
                     }
                 }
+                result = scope.Database.Delete<Question>(id);
+                transaction.Complete();
             }
+
             return result > 0;
         }
 

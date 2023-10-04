@@ -1,7 +1,6 @@
 ﻿function EditController($scope, $routeParams, $filter, $location, notificationsService, navigationService, editorState, formHelper, localizationService, pollsResource) {
     $scope.page = { isLoading: false };
     $scope.model = { question: { answers: [] } };
-    console.log("EditController");
     $scope.page.navigation = [
         {
             "name": "Content",//localizationService.localize("polls_tabContent"),
@@ -20,7 +19,6 @@
 
 
     if (!$routeParams.create && !($routeParams.id === "-1")) {
-
         $scope.page.isLoading = true;
 
         pollsResource.getQuestionById($routeParams.id).then(function (result) {
@@ -39,7 +37,22 @@
             notificationsService.error(result.data.message);
         });
     }
+    $scope.delete = function() {
+        if (formHelper.submitForm({ scope: $scope, statusMessage: "Deleting..." })) {
+            $scope.page.delButtonState = "busy";
+            pollsResource.deleteQuestion($scope.model.question).then(function(result) {
+                formHelper.resetForm({ scope: $scope });
 
+                $scope.page.delButtonState = "success";
+
+                $location.url("/settings/poll/overview");
+
+            }, function (result) {
+                notificationsService.error(result.data.message);
+                $scope.page.delButtonState = "error";
+            });
+        }
+    }
     $scope.save = function () {
         console.log($scope.model.question);
         if (formHelper.submitForm({ scope: $scope, statusMessage: "Saving..." })) {
@@ -68,7 +81,9 @@
                 navigationService.syncTree({ tree: 'poll', path: ['-1', $scope.model.question.id.toString()], forceReload: true, activate: true });
 
                 if ($routeParams.create) {
-                    $location.url("/polls/poll/edit/" + $scope.model.question.id);
+                    console.log($scope.model.question.id);
+                    debugger;
+                    $location.url("/settings/poll/edit/" + $scope.model.question.id);
                 }
             }, function (result) {
                 notificationsService.error(result.data.message);

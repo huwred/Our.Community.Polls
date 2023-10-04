@@ -1,4 +1,4 @@
-﻿function DeleteController($scope, $location, navigationService, treeService, editorState, dialogService, notificationsService, pollsResource) {
+﻿function DeleteController($scope, $location, navigationService, treeService, editorState, notificationsService, pollsResource) {
     $scope.performDelete = function () {
         // stop from firing again on double-click
         if ($scope.busy) {
@@ -14,26 +14,16 @@
 
             treeService.removeNode($scope.currentNode);
 
-            //if the current edited item is the same one as we're deleting, we need to navigate elsewhere
-            if (editorState.current && editorState.current.id.toString() === $scope.currentNode.id) {
-
-                //If the deleted item lived at the root then just redirect back to the root, otherwise redirect to the item's parent
-                var location = "/polls";
-                if ($scope.currentNode.parentId.toString() !== "-1") {
-                    location = "/polls/poll/edit/" + $scope.currentNode.parentId;
-                }
-
-                $location.path(location);
-            }
-
             navigationService.hideMenu();
+            $location.path("/settings/poll/overview");
+
         }, function (err) {
             $scope.currentNode.loading = false;
             $scope.busy = false;
 
             //check if response is ysod
             if (err.status && err.status >= 500) {
-                dialogService.ysodDialog(err);
+                alert(err);
             }
 
             if (err.data && angular.isArray(err.data.notifications)) {
