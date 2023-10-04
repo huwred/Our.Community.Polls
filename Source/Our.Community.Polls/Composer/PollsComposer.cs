@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Our.Community.Polls.Handlers;
-using Our.Community.Polls.Models.Repositories;
+using Our.Community.Polls.NotificationHandlers;
+using Our.Community.Polls.Repositories;
 using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Cms.Core.Notifications;

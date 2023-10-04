@@ -26,7 +26,7 @@
 }
 else
 {
-    <div class="card" style="width: 24rem;">
+    <div class="card" style="width: 24rem;" id="poll_@question.Id">
         <div class="card-header">
             @question.Name
         </div>
@@ -42,7 +42,7 @@ else
                             <label>
                                 @if (allowVote)
                                 {
-                                    @Html.RadioButton("answerId", answer.Id, false, null)
+                                    @Html.RadioButton("answerId", answer.Id, false, new{group="respond"})
                                 }
                                 @answer.Value
                             </label>
@@ -55,11 +55,12 @@ else
                         </div>
                     </li>
                 }
+                
             </ul>
             @if (allowVote)
             {
                 <div class="card-footer" >
-                    <button type="submit" class="btn btn-primary">post</button>
+                    <button type="submit" class="btn btn-primary">post</button>@Html.ValidationSummary()
                 </div>
             }
             else

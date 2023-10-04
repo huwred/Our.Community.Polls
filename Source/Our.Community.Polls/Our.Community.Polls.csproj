@@ -2,22 +2,22 @@
   <PropertyGroup>
     <TargetFrameworks>net7.0;net6.0</TargetFrameworks>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-    <Version>1.0.0-rc1.13</Version>
+    <Version>1.0.0-rc1.16</Version>
     <ContentTargetFolders>.</ContentTargetFolders>
     <Product>Our.Community.Polls</Product>
     <PackageId>Our.Community.Polls</PackageId>
     <Title>Our.Community.Polls</Title>
-    <Description>...</Description>
+    <Description>Create dynamic, interactive polls for your Umbraco web site. </Description>
     <PackageTags>umbraco plugin package</PackageTags>
   </PropertyGroup>
 
   <ItemGroup Condition="$(TargetFramework) == 'net7.0'">
-    <PackageReference Include="Umbraco.Cms.Web.Website" Version="12.0.0" />
-    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="12.0.0" />
+    <PackageReference Include="Umbraco.Cms.Web.Website" Version="[11.0.0,13.0.0)" />
+    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="[11.0.0,13.0.0)" />
   </ItemGroup>
   <ItemGroup Condition="$(TargetFramework) == 'net6.0'">
-    <PackageReference Include="Umbraco.Cms.Web.Website" Version="10.0.0" />
-    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="10.0.0" />
+    <PackageReference Include="Umbraco.Cms.Web.Website" Version="[10.0.0,11.0.0)" />
+    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="[10.0.0,11.0.0)" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,6 +31,10 @@
       <PackagePath>buildTransitive</PackagePath>
     </None>
     <None Include="wwwroot\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="PollConstants\AppSettings.cs" />
   </ItemGroup>
 
 

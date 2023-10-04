@@ -3,7 +3,7 @@ using Umbraco.Cms.Core.Cache;
 using Umbraco.Cms.Core.Events;
 using Umbraco.Cms.Core.Notifications;
 
-namespace Our.Community.Polls.Handlers
+namespace Our.Community.Polls.NotificationHandlers
 {
     public class PollsNotificationHandler : INotificationHandler<ContentCacheRefresherNotification>
     {

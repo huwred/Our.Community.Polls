@@ -2,7 +2,7 @@
 using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using Our.Community.Polls.Models;
-using Our.Community.Polls.Models.Repositories;
+using Our.Community.Polls.Repositories;
 using Umbraco.Cms.Web.BackOffice.Controllers;
 
 namespace Our.Community.Polls.Controllers.ApiControllers

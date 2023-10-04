@@ -31,7 +31,11 @@ namespace Our.Community.Polls.Controllers
         {
             var questionId = form["questionId"];
             var answerId = form["answerId"];
-
+            if (!form.ContainsKey("answerId"))
+            {
+                ModelState.AddModelError("polls","You must select an answer");
+                return CurrentUmbracoPage();
+            }
             var poll = _pollService.Vote(Convert.ToInt32(questionId), Convert.ToInt32(answerId));
             TempData["Question"] = poll;
             return CurrentUmbracoPage();

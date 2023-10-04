@@ -15,9 +15,5 @@
         /// </summary>
         public const string TreeTitle = "Poll Questions";
 
-        /// <summary>
-        /// The polls tree.
-        /// </summary>
-        public const string PollEntity = "poll";
     }
 }

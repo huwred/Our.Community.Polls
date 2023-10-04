@@ -1,7 +1,7 @@
 ﻿using System;
 using Our.Community.Polls.Models;
-using Our.Community.Polls.Models.Repositories;
 using Our.Community.Polls.PollConstants;
+using Our.Community.Polls.Repositories;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.PropertyEditors;
 using Umbraco.Cms.Core.PublishedCache;
@@ -68,28 +68,5 @@ namespace Our.Community.Polls.Converters
             throw new NotImplementedException();
         }
 
-        //protected IPublishedElement ConvertToElement(JObject sourceObject, PropertyCacheLevel referenceCacheLevel, bool preview)
-        //{
-        //    var elementTypeAlias = "question";// sourceObject[PollsValueConverter.ContentTypeAliasPropertyKey]?.ToObject<string>();
-        //    if (string.IsNullOrEmpty(elementTypeAlias))
-        //        return null;
-
-        //    // only convert element types - content types will cause an exception when PublishedModelFactory creates the model
-        //    _publishedSnapshotAccessor.TryGetPublishedSnapshot(out var publishedContentType);
-
-        //    var contentType = publishedContentType.Content.GetContentType(elementTypeAlias);
-        //    if (contentType == null || contentType.IsElement == false)
-        //        return null;
-
-        //    var propertyValues = sourceObject.ToObject<Dictionary<string, object>>();
-
-        //    if (!propertyValues.TryGetValue("key", out var keyo)
-        //        || !Guid.TryParse(keyo.ToString(), out var key))
-        //        key = Guid.Empty;
-
-        //    IPublishedElement element = new PublishedElement(contentType, key, propertyValues, preview, referenceCacheLevel, _publishedSnapshotAccessor);
-        //    element = PublishedModelFactory.CreateModel(element);
-        //    return element;
-        //}
     }
 }

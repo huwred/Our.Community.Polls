@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Our.Community.Polls.Models.Repositories;
 using Our.Community.Polls.PollConstants;
+using Our.Community.Polls.Repositories;
 using Umbraco.Cms.Core;
 using Umbraco.Cms.Core.Actions;
 using Umbraco.Cms.Core.Events;
@@ -13,8 +13,6 @@ using Umbraco.Cms.Web.BackOffice.Trees;
 using Umbraco.Cms.Web.Common.Attributes;
 using Umbraco.Cms.Web.Common.ModelBinders;
 using Umbraco.Extensions;
-
-//using Umbraco.Community.Polls.Models.Repositories;
 
 namespace Our.Community.Polls.Controllers.TreeControllers
 {

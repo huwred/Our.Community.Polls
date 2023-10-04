@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Transactions;
 using NPoco;
+using Our.Community.Polls.Models;
 using Our.Community.Polls.PollConstants;
 using Umbraco.Cms.Infrastructure.Scoping;
 
-namespace Our.Community.Polls.Models.Repositories
+namespace Our.Community.Polls.Repositories
 {
     internal class QuestionRepository : IQuestions
     {

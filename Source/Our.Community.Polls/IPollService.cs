@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Linq;
-using System.Threading;
 using Our.Community.Polls.Models;
-using Our.Community.Polls.Models.Repositories;
 using Our.Community.Polls.PollConstants;
+using Our.Community.Polls.Repositories;
 using Umbraco.Cms.Core.Cache;
 using Umbraco.Extensions;
 

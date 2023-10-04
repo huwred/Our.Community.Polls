@@ -33,6 +33,9 @@ namespace Our.Community.Polls.Models
         public DateTime? CreatedDate { get; set; }
 
         [Ignore]
+        public string CardClass { get; set; }
+
+        [Ignore]
         public IEnumerable<Answer> Answers { get; set; }
         [Ignore]
         public IEnumerable<Response> Responses { get; set; }
