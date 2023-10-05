@@ -3,8 +3,7 @@
 ## Contents
 
 * [Introduction](#introduction)
-* [Settings](#settings)
-* [Get the value](#get-the-value)
+* [Get value](#get-value)
 * [Service](#service)
 
 ---
@@ -17,17 +16,7 @@
 
 ---
 
-### Settings
-
-#### Amount of answers
-You can specify the number of answers per question. _If the value isn't defined, the default value will be:_ `6`
-```xml
-<add key="pollIt:AmountOfAnswers" value="6"/>
-```
-
----
-
-### Get the value
+### Get value
 The value stored in the property is the `id` of the question wich is selected in the content editor.
 
 #### Value Conveter
@@ -38,11 +27,11 @@ The value stored in the property is the `id` of the question wich is selected in
 #### Dynamic
 
 ```csharp
-var question = PollService.GetQuestion(Model.content.poll)
+var question =  PollService.GetQuestion(Model.content.poll)
 ```
 
 ##### Result
-```javascript
+```json
 {
    "Id":3,
    "Name":"How do you like the Poll",

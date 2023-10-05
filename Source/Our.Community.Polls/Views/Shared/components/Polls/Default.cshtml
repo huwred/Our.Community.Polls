@@ -49,7 +49,7 @@ else
                             @if (answer.Responses != null && !allowVote)
                             {
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" aria-label="Example with label" style="width: @answer.Percentage%;" aria-valuenow="@answer.Percentage" aria-valuemin="0" aria-valuemax="100">@answer.Percentage%</div>
+                                    <div class="progress-bar" role="progressbar" aria-label="Response percentages" style="width: @answer.Percentage%;" aria-valuenow="@answer.Percentage" aria-valuemin="0" aria-valuemax="100">@answer.Percentage%</div>
                                 </div>
                             }
                         </div>

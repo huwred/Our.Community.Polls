@@ -1,6 +1,7 @@
 # Examples
+
+
 Example using the provided Viewcomponent.
-## ViewComponent
 ```csharp
    @await Component.InvokeAsync("Polls", Model.MyPoll)
 ```
