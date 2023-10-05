@@ -4,24 +4,24 @@
 
 * [Introduction](#introduction)
 * [Get value](#get-value)
-* [Service](#service)
+* [Service](#poll-service)
 
 ---
 
 ### Introduction
 
-**Our.Community.Polls** is a backoffice extension for umbraco, it adds the functionality to umbraco to create, edit and delete polls inside a custom section. The polls can be selected using a content picker inside the content with a custom propery editor which is included.
+**Our.Community.Polls** is a backoffice extension for umbraco, it adds functionality to create, edit and delete polls in Umbraco. The polls can be selected using a content picker inside the content using a custom propery editor which is included.
 
 
 
 ---
 
-### Get value
-The value stored in the property is the `id` of the question wich is selected in the content editor.
+### Get Value
+The value stored in the property is the `id` of the question.
 
 #### Value Conveter
 ```csharp
-@Model.GetPropertValue<Our.Community.Polls.Question>("poll");
+@Model.GetPropertyValue<Our.Community.Polls.Question>("poll");
 ```
 
 #### Dynamic
@@ -30,7 +30,7 @@ The value stored in the property is the `id` of the question wich is selected in
 var question =  PollService.GetQuestion(Model.content.poll)
 ```
 
-##### Result
+##### Response
 ```json
 {
    "Id":3,
@@ -70,17 +70,15 @@ var question =  PollService.GetQuestion(Model.content.poll)
 }
 ```
 
-### Service
+### Poll Service
 The service has 2 methods, one to get the value and one for voting.
 
-#### GetQuestion
-```csharp
-Question GetQuestion(Model.content.poll)
-```
-You receive the same model as the example above
 
-#### Vote
 ```csharp
-Question Vote(questionId, answerId);
+    public interface IPollService
+    {
+        Question GetQuestion(int questionId);
+        Question Vote(int questionId, int answerId);
+    }
 ```
 You receive the same model as when you call the `getQuestion` method
