@@ -1,10 +1,10 @@
-## Dashboard
+## Overview
 ![Dashboard](Screenshots/Section%20Dashboard.png)
 *Dashboard - Overview of the created Polls*
 
 ## Custom Section
 ![Edit](Screenshots/Question%20Edit.png)
-*Edit - Manage the poll, add answers*
+*Edit - Manage the question and answers*
 
 ![Responses](Screenshots/Question%20Responses.png)
 *Responses - See the responses to the question*
