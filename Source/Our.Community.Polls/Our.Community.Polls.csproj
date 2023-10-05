@@ -4,11 +4,18 @@
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
     <Version>1.0.0</Version>
     <ContentTargetFolders>.</ContentTargetFolders>
+    <Owners>Huw Reddick</Owners>
+    <Authors>Huw Reddick</Authors>
+    <Copyright>Huw Reddick</Copyright>
     <Product>Our.Community.Polls</Product>
     <PackageId>Our.Community.Polls</PackageId>
     <Title>Our.Community.Polls</Title>
     <Description>Create dynamic, interactive polls for your Umbraco web site. </Description>
-    <PackageTags>umbraco plugin package umbraco-marketplace</PackageTags>
+    <PackageProjectUrl>https://github.com/huwred/Our.Community.Polls</PackageProjectUrl>
+    <PackageTags>umbraco-marketplace umbraco plugin package</PackageTags>
+    <RepositoryUrl>https://github.com/huwred/Our.Community.Polls</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup Condition="$(TargetFramework) == 'net7.0'">
@@ -35,6 +42,14 @@
 
   <ItemGroup>
     <Compile Remove="PollConstants\AppSettings.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="readme.md" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="readme.md" />
   </ItemGroup>
 
 
