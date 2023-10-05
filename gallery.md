@@ -19,8 +19,6 @@
 ![Custom Property Editor](Screenshots/Custom%20Property%20Editor.png)
 *Custom Property Editor - Select one of the created questions*
 
-![Custom Property Editor Selected](Screenshots/Custom%20Property%20Editor%20Selected.png)
-*Custom Property Editor - See the selected question, or remove it*
 
 
 
