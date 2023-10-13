@@ -10,6 +10,6 @@
   "Description": "Poll property for Umbraco 10+",
   "LicenseTypes": [ "Free" ],
   "IssueTrackerUrl": "https://github.com/huwred/Our.Community.Polls/issues",
-  "PackageType": "Package"
+  "PackageType": "Package",
   "Category": "Editor Tools"
 }
