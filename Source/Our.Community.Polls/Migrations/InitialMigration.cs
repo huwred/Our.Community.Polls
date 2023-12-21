@@ -4,10 +4,13 @@ using Our.Community.Polls.PollConstants;
 using Umbraco.Cms.Core;
 using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.DependencyInjection;
+using Umbraco.Cms.Core.Migrations;
+using Umbraco.Cms.Core.Scoping;
 using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Infrastructure.Migrations;
 using Umbraco.Cms.Infrastructure.Migrations.Upgrade;
 using Umbraco.Cms.Infrastructure.Scoping;
+using IScopeProvider = Umbraco.Cms.Infrastructure.Scoping.IScopeProvider;
 
 namespace Our.Community.Polls.Migrations
 {
@@ -53,18 +56,16 @@ namespace Our.Community.Polls.Migrations
 
     public class PollsComponent : IComponent
     {
-        private readonly IScopeProvider _scopeProvider;
-        private readonly IScopeAccessor _scopeAccessor;
-        private readonly IMigrationBuilder _migrationBuilder;
+        private readonly ICoreScopeProvider _scopeProvider;
+        private readonly IMigrationPlanExecutor  _migrationPlanExecutor;
         private readonly IKeyValueService _keyValueService;
         private readonly ILoggerFactory _logger;
         private readonly IRuntimeState _runtimeState;
 
-        public PollsComponent(IScopeProvider scopeProvider,IScopeAccessor scopeAccessor, IMigrationBuilder migrationBuilder, IKeyValueService keyValueService, ILoggerFactory logger, IRuntimeState runtimeState)
+        public PollsComponent(ICoreScopeProvider scopeProvider,IMigrationPlanExecutor  migrationPlanExecutor, IKeyValueService keyValueService, ILoggerFactory logger, IRuntimeState runtimeState)
         {
             _scopeProvider = scopeProvider;
-            _scopeAccessor = scopeAccessor;
-            _migrationBuilder = migrationBuilder;
+            _migrationPlanExecutor = migrationPlanExecutor;
             _keyValueService = keyValueService;
             _logger = logger;
             _runtimeState = runtimeState;
@@ -88,7 +89,8 @@ namespace Our.Community.Polls.Migrations
             // Go and upgrade our site (Will check if it needs to do the work or not)
             // Based on the current/latest step
             var upgrader = new Upgrader(migrationPlan);
-            upgrader.Execute(new MigrationPlanExecutor(_scopeProvider,_scopeAccessor,_logger,_migrationBuilder), _scopeProvider, _keyValueService);
+
+            upgrader.Execute(_migrationPlanExecutor, _scopeProvider, _keyValueService);
         }
 
         public void Terminate()
@@ -97,9 +99,6 @@ namespace Our.Community.Polls.Migrations
     }
     public class PollsComposer : ComponentComposer<PollsComponent>
     {
-        public override void Compose(IUmbracoBuilder builder)
-        {
-            base.Compose(builder);
-        }
+
     }
 }

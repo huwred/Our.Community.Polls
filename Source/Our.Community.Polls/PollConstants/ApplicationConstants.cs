@@ -9,7 +9,7 @@
         /// <summary>
         /// Section alias.
         /// </summary>
-        public const string SectionAlias = "polls";
+        public const string SectionAlias = "Polls";
 
         /// <summary>
         /// Property editor alias.

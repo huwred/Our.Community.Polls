@@ -1,5 +1,5 @@
 ﻿{
-  "allowPackageTelemetry": false,
+  "bundleOptions": "None",
   "sections": [
     {
       "alias": "pollsection",
@@ -14,7 +14,7 @@
       "icon": "icon-poll",
       "group": "Pickers",
       "editor": {
-        "view": "/App_Plugins/Polls/backoffice/propertyEditors/picker/picker.html",
+        "view": "/App_Plugins/Polls/backoffice/propertyeditors/picker/picker.html",
         "valueType": "JSON"
       }
     }

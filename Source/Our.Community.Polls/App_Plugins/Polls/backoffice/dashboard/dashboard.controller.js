@@ -1,6 +1,7 @@
 ﻿function DashboardController($scope, $location, $filter, notificationsService, pollsResource) {
     $scope.page = { loading: false };
     $scope.content = { questions: [] };
+    console.log(Umbraco.Sys.ServerVariables.polllinks.getOverview);
 
     pollsResource.getOverview().then(function (result) {
         $scope.content.questions = result.data;

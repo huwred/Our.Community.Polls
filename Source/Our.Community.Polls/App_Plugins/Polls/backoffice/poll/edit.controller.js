@@ -6,14 +6,14 @@
             "name": "Content",//localizationService.localize("polls_tabContent"),
             "alias": "content",
             "icon": "icon-document",
-            "view": "/app_plugins/Polls/backoffice/poll/subviews/content/content.html",
+            "view": "/App_Plugins/Polls/backoffice/poll/subviews/content/content.html",
             "active": true
         }
         ,{
             "name": "Responses", //localizationService.localize("polls_tabResponses"),
             "alias": "responses",
             "icon": "icon-poll",
-            "view": "/app_plugins/Polls/backoffice/poll/subviews/responses/responses.html"
+            "view": "/App_Plugins/Polls/backoffice/poll/subviews/responses/responses.html"
         }
     ];
 
