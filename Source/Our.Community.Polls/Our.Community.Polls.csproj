@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFrameworks>net8.0;net7.0;net6.0</TargetFrameworks>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-    <Version>2.0.0</Version>
+    <Version>2.0.1</Version>
     <ContentTargetFolders>.</ContentTargetFolders>
     <Owners>Huw Reddick</Owners>
     <Authors>Huw Reddick</Authors>

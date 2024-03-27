@@ -2,8 +2,10 @@
 @using Our.Community.Polls.Controllers
 @using Our.Community.Polls.Interfaces
 @using Our.Community.Polls.Models
+@using Umbraco.Cms.Web.Common
 @using Umbraco.Extensions
 @inject IPollService pollService
+@inject UmbracoHelper umbracoHelper
 @{
     var question = Model;
     bool allowVote = true;
@@ -28,7 +30,7 @@ else
 {
     <div class="card featurepoll" id="poll_@question.Id">
         <div class="card-header">
-            @question.Name
+            @umbracoHelper.GetDictionaryValue(question.Name, question.Name)
         </div>
         @using (Html.BeginUmbracoForm<PollSurfaceController>("Poll"))
         {
@@ -44,7 +46,7 @@ else
                                 {
                                     @Html.RadioButton("answerId", answer.Id, false, new{group="respond"})
                                 }
-                                @answer.Value
+                                @umbracoHelper.GetDictionaryValue(answer.Value, answer.Value)
                             </label>
                             @if (answer.Responses != null && !allowVote)
                             {
@@ -68,11 +70,11 @@ else
                 <div class="card-footer">
                     @if (expired)
                     {
-                        <label>Voting has closed</label>
+                        <label>@umbracoHelper.GetDictionaryValue("VotingClosed")</label>
                     }
                     else
                     {
-                        <label>Thank you for voting</label>
+                        <label>@umbracoHelper.GetDictionaryValue("ThankYou")</label>
                     }
                     
                 </div>
