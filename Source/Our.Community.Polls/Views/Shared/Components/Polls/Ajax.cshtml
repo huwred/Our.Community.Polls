@@ -22,10 +22,9 @@
         allowVote = false;
     }
 }
-
 @if (question.StartDate != null && DateTime.UtcNow < question.StartDate)
 {
-    <label>@umbracoHelper.GetDictionaryValue("VotingClosed")</label>
+
 }
 else
 {
@@ -33,9 +32,9 @@ else
         <div class="card-header">
             @umbracoHelper.GetDictionaryValue(question.Name, question.Name)
         </div>
-        @using (Html.BeginUmbracoForm<PollSurfaceController>("Poll"))
-        {
-            @Html.Hidden("questionId", question.Id,null)
+        <form action="umbraco/surface/pollsurface/poll" id="poll-vote">
+
+            @Html.Hidden("questionId", question.Id, null)
             <ul class="list-group list-group-flush">
 
                 @foreach (var answer in question.Answers)
@@ -45,7 +44,7 @@ else
                             <label>
                                 @if (allowVote)
                                 {
-                                    @Html.RadioButton("answerId", answer.Id, false, new{group="respond"})
+                                    @Html.RadioButton("answerId", answer.Id, false, new { group = "respond" })
                                 }
                                 @umbracoHelper.GetDictionaryValue(answer.Value, answer.Value)
                             </label>
@@ -58,13 +57,12 @@ else
                         </div>
                     </li>
                 }
-                
+
             </ul>
             @if (allowVote)
             {
-                <div class="card-footer" >
-                    <button type="submit" class="btn btn-primary">@umbracoHelper.GetDictionaryValue("VoteBtn")</button>
-                    @Html.ValidationSummary()
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary" id="vote-btn">post</button>@Html.ValidationSummary()
                 </div>
             }
             else
@@ -78,10 +76,11 @@ else
                     {
                         <label>@umbracoHelper.GetDictionaryValue("ThankYou")</label>
                     }
-                    
+
                 </div>
             }
-        }
+        </form>
+
     </div>
 }
 

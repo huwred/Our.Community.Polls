@@ -42,5 +42,12 @@ namespace Our.Community.Polls.Controllers
             return CurrentUmbracoPage();
         }
 
+        public IActionResult Vote(int questionId,int answerId)
+        {
+
+            var poll = _pollService.Vote(questionId, answerId);
+            TempData["Question"] = poll;
+            return ViewComponent("Polls",new {Model = poll});
+        }
     }
 }
