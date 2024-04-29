@@ -2,6 +2,9 @@
 
 Simple Poll Property Editor for Umbraco
 
+## 2.0.4 Update
+Fix to clear results cache on votng
+
 ## 2.0.3 Update
 Added a new ViewComponent template which allows the poll to be posted using a jquery ajax post.
 This allows you to implement code to prevent page scroll when a visitor votes.

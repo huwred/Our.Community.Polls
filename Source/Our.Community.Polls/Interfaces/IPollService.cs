@@ -70,7 +70,7 @@ namespace Our.Community.Polls.Interfaces
 
                 if (result != null)
                 {
-                    //PollsCacheRefresher.ClearCache(questionId);
+                    _runtimeCache.ClearByKey($"{RuntimeCacheConstants.RuntimeCacheKeyPrefix}{questionId}");
                 }
             }
 
