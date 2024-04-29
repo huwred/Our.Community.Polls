@@ -87,14 +87,44 @@ You receive the same model as when you call the `getQuestion` method
 ### Examples
 
 
-Example using the provided Viewcomponent.
+#### Examples using the provided Viewcomponents.
+##### Standard Implementation which uses Html.BeginUmbracoForm to do the voting
 ```csharp
    @await Component.InvokeAsync("Polls", Model.MyPoll)
 ```
+##### New Implementation which uses standard html form to use an ajax post
+```csharp
+   @await Component.InvokeAsync("Polls", new {Model=Model.MyPoll,Template="Ajax"})
+```
+This new view component uses a standard form (non Umbraco) it was added to allow the use of an ajax post to prevent page scrolling after voting.
+To accomplish this you will need to implement an ajax post when the vote button is clicked, example below. You will need to wrap the viewcomponent call in a wrapper div with an id so it can be replaced by the javascript.
+```js
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"></script>
+    <script>
+        $(document).on('click', '#vote-btn', function (e) {
+            e.preventDefault(); // avoid to execute the actual submit of the form.
 
-Example using a controller and view.
+            var form = $('#poll-vote');
 
-#### Controller
+            $.ajax({
+                type: "GET",
+                url: "umbraco/surface/pollsurface/vote",
+                data: form.serialize(), // serializes the form's elements.
+                success: function (data) {
+                    console.log("return: " + data);
+                    $('#poll-container').html(data); // update the polls parent container with the results
+                    $('.card-footer').focus();
+                }
+            });
+        });
+    </script>
+```
+#### Example using a controller and view.
+
+##### Controller
 ```csharp
     public class PollSurfaceController : SurfaceController
     {
@@ -119,7 +149,7 @@ Example using a controller and view.
     }
 ```
 
-#### View
+##### View
 ```csharp
 @inherits UmbracoViewPage<Our.Community.Polls.Models.Question>
 
