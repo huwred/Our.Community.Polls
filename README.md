@@ -4,6 +4,9 @@ Simple Poll Property Editor for Umbraco
 ![MyPoll](Screenshots/MyPoll.png)
 ![MyPoll Responses](Screenshots/MyPollResponses.png)
 
+## Update 2.0.4
+Added fix to clear answer cache when someone votes in the Poll
+
 ## Update 2.0.3
 Adds a new ViewComponent template to allow ajax post when voting
 
